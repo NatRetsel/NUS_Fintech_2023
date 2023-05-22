@@ -41,7 +41,6 @@ function get_user_by_user_id(user_id) {
 
 function add_user(user) {
   users.push(user);
-  return true;
 }
 
 module.exports = {

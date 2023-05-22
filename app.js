@@ -2,6 +2,8 @@ const express = require('express')
 const data = require('./mock_data')
 const app = express()
 
+app.use(express.json());
+
 app.get('/', function(req, res){
     res.send('Hello World')
 })
@@ -21,11 +23,8 @@ app.get("/users/all", (req, res) => {
 })
 
 app.post("/users/add", (req,res) => {
-    let result = data.add_user(req.body)
-    if (result)
-        res.send("User added successfully")
-    else
-        res.status(500).send("User not added")
+    data.add_user(req.body);
+    res.status(200).send(`Record added!`);
 })
 
 
